@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Inter";
+    src: url("../public/fonts/Inter-4.1/InterVariable.ttf");
+}
+
+@font-face {
+    font-family: "Baloo";
+    src: url("../public/fonts/Red_Rose//static/RedRose-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Fredoka";
+    src: url("../public/fonts/Fredoka,Roboto/Fredoka/Fredoka-VariableFont_wdth\,wght.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+    --shadow-auth: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    --font-fredoka: "Fredoka", "sans-serif";
+
+    --grey-sub-content: rgb(140, 140, 140, 1);
+    --grey-input: rgb(246, 246, 246, 1);
+
+    --yellow-btn: rgb(243, 238, 119, 1);
+
+    --blue-btn: rgb(121, 220, 255, 1);
+
+    --black-visible: rgb(0, 0, 0, 0.5);
+
+    --rotateY-none: rotateY(0);
+    --rotateY-back-: rotateY(-180deg);
+    --rotateY-back: rotateY(180deg);
+}
