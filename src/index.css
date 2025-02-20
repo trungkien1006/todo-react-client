@@ -16,7 +16,14 @@
 @import "tailwindcss";
 
 @theme {
+    --book-content-height: calc(100% - 32px);
+    --book-content-width: calc(100% - 16px);
+    --pages-left: calc(20% + 16px);
+    --chevron-right: calc(-100% - 16px);
+    --chevron-top: calc(50% - 22px);
+
     --shadow-auth: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    --shadow-book: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
     --font-fredoka: "Fredoka", "sans-serif";
 
@@ -27,9 +34,57 @@
 
     --blue-btn: rgb(121, 220, 255, 1);
 
+    --old-book-color: rgb(143, 105, 69, 1);
+    --old-paper-color: rgb(232, 220, 184);
+
     --black-visible: rgb(0, 0, 0, 0.5);
 
     --rotateY-none: rotateY(0);
     --rotateY-back-: rotateY(-180deg);
     --rotateY-back: rotateY(180deg);
+
+    --fold-move-the-book-sub-cover: translateX(50%) rotateY(180deg);
+    --fold-move-the-book-cover:translateX(25%) rotateY(180deg);
+    --fold-move-the-book-cover-: translateX(25%) rotateY(-180deg);
+    --move-the-papers: translateX(25%);
+    --move-the-book: translateX(25%);
+
+    --animate-disappear: disappear 1.5s ease-in-out forwards;
+    --animate-appear: appear 1.5s ease-in-out forwards;
+
+    @keyframes appear {
+            0% {
+                transform: scale(0)
+            }
+
+            40% {
+                transform: scale(1.1)
+            }
+    
+            60% {
+                transform: scale(1.1)
+            }
+    
+            100% {
+                transform: scale(1)
+            }
+        }
+
+    @keyframes disappear {
+        0%{
+            transform: scale(1)
+        }
+
+        50%{
+            transform: scale(1.1)
+        }
+
+        60%{
+            transform: scale(1.1)
+        }
+
+        100%{
+            transform: scale(0)
+        }
+    }
 }

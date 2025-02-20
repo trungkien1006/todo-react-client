@@ -23,18 +23,18 @@ axiosPrivate.interceptors.request.use(
     }
 );
 
-axiosPrivate.interceptors.response.use(
-    (response) => {
-        return response;
-    },
-    (error) => {
-        if (error.response && error.response.status === 400) {
-            localStorage.removeItem('authToken');
+// axiosPrivate.interceptors.response.use(
+//     (response) => {
+//         return response;
+//     },
+//     (error) => {
+//         if (error.response.data.errors != "token invalid" && error.response.status === 400) {
+//             localStorage.removeItem('authToken');
 
-            window.location.href = '/';
-        }
+//             window.location.href = '/';
+//         }
 
-        return Promise.reject(error);
-    }
-);
+//         return Promise.reject(error);
+//     }
+// );
 export default axiosPrivate;

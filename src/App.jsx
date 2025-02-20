@@ -9,7 +9,8 @@ function App() {
     <div className='font-fredoka'>
       <Routes>  
         <Route path="/" element={<GuestGuard element={<Auth />}/>} />
-        <Route path="/home" element={<AuthGuard  element={<Home />}/>} />
+        {/* <Route path="/home" element={<AuthGuard  element={<Home />}/>} /> */}
+        <Route path="/home" element={<Home />} />
       </Routes>
     </div>
   )

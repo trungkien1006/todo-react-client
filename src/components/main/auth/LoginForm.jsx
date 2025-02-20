@@ -2,7 +2,7 @@ import { useState } from "react";
 import useDebounce from "../../../hooks/useDebounce";
 import authAPI from "../../../apis/modules/auth.api";
 
-function LoginForm({handleSetFlip}) {
+function LoginForm({handleSetFlip, handleNavigate}) {
     const [input, setInput] = useState({ username: "", password: "" })
     const [inputError, setInputError] = useState("")
     
@@ -16,9 +16,7 @@ function LoginForm({handleSetFlip}) {
 
     const onSubmitForm = useDebounce(async (input) => {
         await authAPI.login(input.username, input.password).then(response => {
-            localStorage.setItem("authToken", response.data.data.token)
-
-            window.location.href = "/home"
+            handleNavigate(response.data.data.token)
         })
         .catch(error => {
             if (error.response) {

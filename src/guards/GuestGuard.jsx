@@ -10,7 +10,7 @@ function GuestGuard({ element }) {
         .then(response => {
             setIsAuthentication(true)
         })
-    })
+    }, [])
 
     return (
         <>
