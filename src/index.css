@@ -19,13 +19,19 @@
     --book-content-height: calc(100% - 32px);
     --book-content-width: calc(100% - 16px);
     --pages-left: calc(20% + 16px);
-    --chevron-right: calc(-100% - 16px);
+    --chevron-right: calc(-100% - 12px);
     --chevron-top: calc(50% - 22px);
 
     --shadow-auth: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     --shadow-book: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
     --font-fredoka: "Fredoka", "sans-serif";
+
+    --status-canceled: rgba(255, 73, 73, 100);
+    --status-completed: rgba(19, 206, 102, 100);
+    --status-pending: rgba(45, 142, 255, 100);
+    --status-progressing: rgba(255, 204, 61, 100);    
+    --status-none: rgb(140, 140, 140, 1);
 
     --grey-sub-content: rgb(140, 140, 140, 1);
     --grey-input: rgb(246, 246, 246, 1);
