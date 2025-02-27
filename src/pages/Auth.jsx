@@ -22,7 +22,7 @@ function Auth() {
     }
 
     return (
-        <div className={`w-screen h-screen flex justify-center items-center origin-center ${isNavigate ? "animate-(--animate-disappear)": ""}`}>
+        <div className={`w-screen h-screen flex justify-center items-center origin-center ${isNavigate ? "animate-(--animate-disappear)": "animate-(--animate-appear)"}`}>
             <div className="w-3xl h-96 shadow-(--shadow-auth) rounded-xl flex relative perspective-distant">
                 <LoginForm handleSetFlip={handleSetFlip} handleNavigate={handleNavigate} />
 

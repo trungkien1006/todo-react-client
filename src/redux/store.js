@@ -4,6 +4,8 @@ import { persistReducer, persistStore } from "redux-persist";
 import { combineReducers } from "redux";
 import filterSlice from "./slices/filterSlice"
 import todoListSlice from "./slices/todoListSlice"
+import modalSlice from "./slices/modalSlice"
+import sorterSlice from "./slices/sorterSlice"
 import {
   FLUSH,
   REHYDRATE,
@@ -22,7 +24,9 @@ const persistConfig = {
 // Kết hợp reducers để persist
 const rootReducer = combineReducers({
   filter: filterSlice,
-  todoList: todoListSlice
+  todoList: todoListSlice,
+  modal: modalSlice,
+  sorter: sorterSlice
 });
 
 // Tạo persisted reducer

@@ -6,11 +6,11 @@ function TodoHeader({ priority, dueDate }) {
     const priorityColor = (value) => {
         switch (value) {
             case 1:
-                return "progressing"
+                return "text-(--status-progressing)"
             case 2:
-                return "completed"
+                return "text-(--status-completed)"
             case 3:
-                return "canceled"
+                return "text-(--status-canceled)"
         }
     }
 
@@ -36,12 +36,11 @@ function TodoHeader({ priority, dueDate }) {
             }
         }
         else if (Math.floor(Math.abs(diffMs)) >= 60 * 1000) {
-            type = "minute"
+            type = "min"
             value = Math.floor(Math.abs(diffMs) / (1000 * 60)) % 60;
-            isBurn = true;
         }
         else {
-            type = "second";
+            type = "sec";
             value = (Math.floor(Math.abs(diffMs) / 1000) % 60)
         }
 
@@ -56,7 +55,7 @@ function TodoHeader({ priority, dueDate }) {
         <div className="flex relative justify-center">
             <TodoHeaderTimeDiff data={getTimeDifference(dueDate)}/>
 
-            <div className={`absolute right-[8px] top-[4px] text-(--status-${priorityColor(priority)}) text-center text-xl cursor-pointer`}>
+            <div className={`absolute right-[8px] top-[4px] ${priorityColor(priority)} text-center text-xl cursor-pointer`}>
                 {priority > 0 && <i class="fa-solid fa-exclamation"></i>}
                 {priority > 1 && <i class="fa-solid fa-exclamation"></i>}
                 {priority > 2 && <i class="fa-solid fa-exclamation"></i>}

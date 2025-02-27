@@ -5,7 +5,8 @@ import LeftCover from "../components/main/home/LeftCover"
 import Pages from "../components/main/home/Pages"
 import homeAPI from "../apis/modules/home.api"
 import { useDispatch, useSelector } from "react-redux"
-import { changeTodos, changeTotalPage } from "../redux/slices/todoListSlice"
+import { changeLoading, changeTodos, changeTotalPage } from "../redux/slices/todoListSlice"
+import Modal from "../components/reuse/Modal"
 
 function Home() {
     const [navigate, setNavigate] = useState(true)
@@ -25,32 +26,40 @@ function Home() {
         .then(response => {
             dispatch(changeTodos(response.data.data.Todos))
             dispatch(changeTotalPage(response.data.data.TotalPage))
+            
+            setTimeout(() => {
+                dispatch(changeLoading(false))
+            }, 3000)
         })
-        .catch(error => {
+        .catch(() => {
             dispatch(changeTodos([]))
             dispatch(changeTotalPage(1))
         })
     }
 
     useEffect(() => {
+        dispatch(changeLoading(true))
+        
         handleGetTodo({
             ...filter,
-            currentPage: 1,
-            limit: 18
+            currentPage: todoList.currentPage,
+            limit: todoList.limit
         })
-    }, [])
+    }, [todoList.currentPage])
    
     return (
-        <div className={`w-screen h-screen flex justify-center items-center relative perspective-distant transform-3d ${navigate ? "animate-(--animate-appear)": ""}`}>
-            <div className="w-full h-154 mx-[48px] rounded-xl flex transform-3d relative">
+        <div className={`w-screen h-screen flex justify-center items-center relative perspective-distant transform-3d ${navigate ? "animate-(--animate-appear)": "animate-(--animate-disappear)"}`}>
+            <div className="w-[1600px] h-154  rounded-xl flex transform-3d relative">
                 <SubCover fold={fold} handleFold={handleFold}/>
                 
                 <LeftCover fold={fold}/>
                 
-                <RightCover fold={fold} />
+                <RightCover fold={fold} setIsNavigate={setNavigate}/>
                 
-                <Pages fold={fold} todoList={todoList}/>
+                <Pages fold={fold}/>
             </div>
+
+            <Modal />
         </div>
     )
 }

@@ -5,7 +5,7 @@ function AuthGuard({ element }) {
 
     return (
         <>
-            { isAuthenticated ? (element) : (<Navigate to="/" />) }
+            { isAuthenticated != "" ? (element) : (<Navigate to="/" />) }
         </>
     );
 }
